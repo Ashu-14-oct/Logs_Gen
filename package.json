@@ -1,5 +1,7 @@
 {
   "dependencies": {
     "mongodb": "^6.18.0"
-  }
+  },
+  "bin": "log_generator.js"
 }
+

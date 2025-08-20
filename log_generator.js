@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 const fs = require("fs");
 const path = require("path");
 
-const uri = "mongodb://localhost:27017/Ashu";
+const uri = "mongodb://127.0.0.1:27017/Ashu";
 const dbName = "ondcFISBuyer";
 const collectionName = "logs";
 
@@ -58,6 +58,6 @@ async function exportTransactionLogs(transactionId){
         await client.close();
     }
 }
+const txId = process.argv[2];
 
-
-exportTransactionLogs("b662fc7e-8987-4a64-ad95-a0e823a9479b");
+exportTransactionLogs(txId || "b662fc7e-8987-4a64-ad95-a0e823a9479b");
