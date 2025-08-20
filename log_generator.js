@@ -27,8 +27,19 @@ async function exportTransactionLogs(transactionId){
         //process each doc
         docs.forEach((doc, index) => {
             const {request, action} = doc;
+
+             // clone context so we don’t mutate original doc
+            const context = { ...request?.context };
+
+            // replace bap_uri if it matches localhost
+            if (context?.bap_uri === "http://localhost:8000/buyer/protocol") {
+                context.bap_uri = "https://ondc.sequelstring.com/buyer/protocol";
+            }
+            if(context?.bpp_uri === "http://localhost:5006/seller/protocol"){
+                context.bpp_uri = "https://ondc.sequelstring.com/seller/protocol";
+            }
             const output = {
-                context: request?.context,
+                context: context,
                 message: request?.message
             }
 
@@ -40,7 +51,7 @@ async function exportTransactionLogs(transactionId){
             console.log(`✅ Saved ${fileName}`);
         });
 
-        console.log("🎉 Export completed.");
+        console.log("Export completed.");
     } catch (error) {
         console.error("Error exporting transaction logs:", error);
     } finally {
@@ -49,4 +60,4 @@ async function exportTransactionLogs(transactionId){
 }
 
 
-exportTransactionLogs("b7a13e1a-97fa-45dd-a3dd-cd02b45cb48b");
+exportTransactionLogs("b662fc7e-8987-4a64-ad95-a0e823a9479b");
