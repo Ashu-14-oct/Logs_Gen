@@ -28,10 +28,7 @@ You can build a standalone `.exe` file using [pkg](https://www.npmjs.com/package
    pkg log_generator.js --targets node18-win-x64 --output logs_generator.exe
 
 3. Run the executable:
-   logs_generator.exe <transaction_id>
-
-Example:
-logs_generator.exe b662fc7e-8987-4a64-ad95-a0e823a9479b
+   Enter the transaction ID to download the logs
 
 If no transaction ID is provided, the default one will be used.
 
