@@ -58,6 +58,8 @@ async function exportTransactionLogs(transactionId){
         await client.close();
     }
 }
-const txId = process.argv[2];
+const prompt = require("prompt-sync")();
+
+const txId = prompt("Enter Transaction ID: ");
 
 exportTransactionLogs(txId || "b662fc7e-8987-4a64-ad95-a0e823a9479b");
