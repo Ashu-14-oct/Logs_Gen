@@ -1,8 +1,10 @@
 const { MongoClient } = require("mongodb");
 const fs = require("fs");
 const path = require("path");
+const prompt = require("prompt-sync")();
 
-const uri = "mongodb://127.0.0.1:27017/ondc-db";
+let uri = prompt("Enter MongoDB URI (default: mongodb://127.0.0.1:27017/ondc-db): ") || "mongodb://127.0.0.1:27017"
+uri = uri + "/ondc-db"
 const dbName = "ondcFISBuyer";
 const collectionName = "logs";
 
@@ -58,7 +60,6 @@ async function exportTransactionLogs(transactionId){
         await client.close();
     }
 }
-const prompt = require("prompt-sync")();
 
 const txId = prompt("Enter Transaction ID: ");
 
