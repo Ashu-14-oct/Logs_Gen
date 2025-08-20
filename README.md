@@ -7,6 +7,7 @@ A simple Node.js tool to fetch and export ONDC transaction logs.
 1. Clone the repository
 2. Install dependencies:
    npm install
+3. Change DB details in the log_generator.js file
 
 ## Usage
 
