@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 const fs = require("fs");
 const path = require("path");
 
-const uri = "mongodb://127.0.0.1:27017/Ashu";
+const uri = "mongodb://127.0.0.1:27017/ondc-db";
 const dbName = "ondcFISBuyer";
 const collectionName = "logs";
 
@@ -63,3 +63,5 @@ const prompt = require("prompt-sync")();
 const txId = prompt("Enter Transaction ID: ");
 
 exportTransactionLogs(txId || "b662fc7e-8987-4a64-ad95-a0e823a9479b");
+
+//  pkg log_generator.js --targets node18-win-x64 --output logs_generator.exe
